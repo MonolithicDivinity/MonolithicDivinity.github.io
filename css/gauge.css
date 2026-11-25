@@ -1,0 +1,31 @@
+/* Depth gauge. Desktop: a brass rail on the right. Narrow screens: a pill that opens a list. */
+.gauge { --brass: #b8964a; --brass-dim: rgba(184, 150, 74, .45); position: fixed; z-index: 40; font: 13px var(--type); letter-spacing: .1em; }
+.gauge-marks { list-style: none; margin: 0; padding: 0; }
+.gauge a { color: #b9c9c0; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+.gauge a:hover, .gauge a[aria-current="location"] { color: #f0dfb0; }
+.gauge-depth { color: var(--brass); }
+
+@media (min-width: 900px) {
+  .gauge { right: 26px; top: 14vh; bottom: 14vh; width: 120px; }
+  /* the toggle doubles as the live readout above the rail */
+  .gauge-toggle { position: absolute; right: -8px; top: -44px; background: none; border: 0; padding: 0; color: #f0dfb0; font: 15px var(--type); letter-spacing: .12em; pointer-events: none; text-shadow: 0 0 8px #000; }
+  .gauge-toggle-hint { display: none; }
+  .gauge-rail { position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(var(--brass), var(--brass-dim) 50%, rgba(184, 150, 74, .15)); box-shadow: 0 0 0 1px rgba(0, 0, 0, .5); }
+  .gauge-marks li { position: absolute; right: 0; top: calc(var(--at) * 100%); transform: translateY(-50%); }
+  .gauge-marks a { display: flex; flex-direction: column; align-items: flex-end; padding: 4px 16px 4px 0; position: relative; text-shadow: 0 0 6px #000, 0 0 2px #000; }
+  .gauge-marks a::after { content: ""; position: absolute; right: -4px; top: 50%; width: 11px; height: 1px; background: var(--brass); }
+  .gauge-name { font-size: 11px; opacity: .75; }
+  .gauge-pointer { position: absolute; right: -7px; top: calc(var(--at) * 100%); transform: translateY(-50%); transition: top .12s linear; width: 0; height: 0;
+    border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-right: 10px solid #f0dfb0; filter: drop-shadow(0 0 4px rgba(240, 223, 176, .6)); }
+  .gauge-pointer .gauge-readout { display: none; }
+}
+@media (min-width: 900px) and (prefers-reduced-motion: reduce) { .gauge-pointer { transition: none; } }
+
+@media (max-width: 899.98px) {
+  .gauge { right: 14px; bottom: 14px; }
+  .gauge-rail { display: none; }
+  .gauge-toggle { display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--brass-dim); background: rgba(4, 10, 10, .9); color: #f0dfb0; font: 13px var(--type); letter-spacing: .1em; cursor: pointer; }
+  .gauge-marks { display: none; position: absolute; right: 0; bottom: calc(100% + 8px); background: rgba(4, 10, 10, .96); border: 1px solid var(--brass-dim); border-radius: 10px; padding: 8px 0; min-width: 220px; }
+  .gauge.open .gauge-marks { display: block; }
+  .gauge-marks a { display: flex; justify-content: space-between; gap: 16px; padding: 10px 16px; }
+}

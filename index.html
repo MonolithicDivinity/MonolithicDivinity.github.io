@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monolith | Roblox systems &amp; frontend programmer</title>
+<meta name="description" content="Portfolio of Monolith (@MonolithicDivinity), a Roblox scripter specialising in frontend, UI and combat systems. Nine years beneath the surface.">
+<meta name="theme-color" content="#0f1c20">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Monolith | Roblox systems & frontend programmer">
+<meta property="og:description" content="I build the systems that lurk beneath the game.">
+<meta property="og:url" content="https://monolithicdivinity.github.io/">
+<meta property="og:image" content="https://monolithicdivinity.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MonolithicDivi">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Special+Elite&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/surface.css">
+<link rel="stylesheet" href="css/gauge.css">
+</head>
+<body>
+<a class="skip" href="#records">Skip to content</a>
+<canvas id="snow" aria-hidden="true"></canvas>
+<nav id="gauge" aria-label="Depth"></nav>
+<main>
+  <section id="surface" data-gauge-label="Surface" class="zone zone-surface" data-fathoms="0" aria-label="Surface">
+    <div class="stage" aria-hidden="true">
+      <div class="art">
+        <img data-layer="sky" src="assets/art/surface/sky.png" alt="">
+        <div data-layer="flash"></div>
+        <img data-layer="colossus" src="assets/art/surface/colossus.png" alt="">
+        <img data-layer="sea" src="assets/art/surface/sea.png" alt="">
+        <img data-layer="coast" src="assets/art/surface/coast.png" alt="">
+        <img data-layer="town_far" src="assets/art/surface/town_far.png" alt="">
+        <img data-layer="mist" src="assets/art/surface/mist.png" alt="">
+        <img data-layer="town_near" src="assets/art/surface/town_near.png" alt="">
+        <img data-layer="foam" src="assets/art/surface/foam.png" alt="">
+        <img data-layer="boat" src="assets/art/surface/boat.png" alt="">
+        <img data-layer="swell" src="assets/art/surface/swell.png" alt="">
+        <img data-layer="lightning" src="assets/art/surface/lightning.png" alt="">
+        <div data-layer="rain"></div>
+      </div>
+    </div>
+    <div class="surface-title">
+      <div class="pre" data-field="profile.handle">@MonolithicDivinity</div>
+      <h1 class="ink" data-field="profile.name">Monolith</h1>
+      <p class="tagline" data-field="profile.tagline">I build the systems that lurk beneath the game.</p>
+      <p class="status"><span class="dot" aria-hidden="true"></span><span data-field="profile.status">Open for commissions</span></p>
+      <a class="descend" href="#records">Descend <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <div class="depths">
+    <section id="records" data-gauge-label="Records" class="zone" data-fathoms="40" aria-labelledby="h-records">
+      <header class="zone-head"><span class="ftm">40 fathoms</span><h2 id="h-records" class="ink">Records</h2></header>
+      <div id="bio" class="prose"></div>
+    </section>
+
+    <section id="exhibits" data-gauge-label="Exhibits" class="zone" data-fathoms="120" aria-labelledby="h-exhibits">
+      <header class="zone-head"><span class="ftm">120 fathoms</span><h2 id="h-exhibits" class="ink">Exhibits</h2></header>
+      <div id="showcase-list"></div>
+    </section>
+
+    <section id="history" data-gauge-label="Flight Log" class="zone" data-fathoms="200" aria-labelledby="h-history">
+      <header class="zone-head"><span class="ftm">200 fathoms</span><h2 id="h-history" class="ink">Flight Log</h2></header>
+      <div id="history-list"></div>
+    </section>
+
+    <section id="skills" data-gauge-label="Skills" class="zone" data-fathoms="300" aria-labelledby="h-skills">
+      <header class="zone-head"><span class="ftm">300 fathoms</span><h2 id="h-skills" class="ink">Skills</h2></header>
+      <div id="skills-list"></div>
+    </section>
+
+    <section id="abyss" data-gauge-label="Contact" class="zone zone-abyss" data-fathoms="inf" aria-labelledby="h-abyss">
+      <div class="eye" aria-hidden="true"><div class="iris"></div></div>
+      <header class="zone-head"><span class="ftm">∞</span><h2 id="h-abyss" class="ink">Contact</h2></header>
+      <p class="whisper">Something down here wants to hear from you.</p>
+      <p class="status"><span class="dot" aria-hidden="true"></span><span data-field="profile.status">Open for commissions</span></p>
+      <div id="contact"></div>
+      <div id="links"></div>
+    </section>
+  </div>
+</main>
+<footer class="foot">© 2026 Monolith · Pixel art drawn in Aseprite · No build step, just the deep.</footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

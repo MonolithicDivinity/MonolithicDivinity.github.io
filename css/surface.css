@@ -1,0 +1,15 @@
+.zone-surface { padding: 0; }
+.zone-surface > .stage { position: absolute; inset: 0; overflow: hidden; z-index: 0; max-width: none; margin: 0; }
+.stage .art { position: absolute; }
+.stage .art > * { position: absolute; inset: 0; width: 100%; height: 100%; }
+.stage img { display: block; image-rendering: pixelated; user-select: none; -webkit-user-drag: none; }
+.stage [data-layer="flash"] { background: #cdd6c4; opacity: 0; mix-blend-mode: screen; }
+.stage [data-layer="lightning"] { opacity: 0; }
+.stage [data-layer="rain"] { background-image: url(../assets/art/surface/rain.png); background-repeat: repeat; image-rendering: pixelated; }
+/* hand the storm over to the deep water below */
+.stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14%; background: linear-gradient(transparent, var(--surface-bg)); pointer-events: none; }
+
+/* reduced motion: one quiet, lightning-lit frame; nothing moves or flashes */
+.zone-surface.still [data-layer="rain"] { display: none; }
+.zone-surface.still [data-layer="flash"] { opacity: .15; }
+.zone-surface.still [data-layer="colossus"] { filter: brightness(.6); }

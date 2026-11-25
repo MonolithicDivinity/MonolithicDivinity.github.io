@@ -1,0 +1,125 @@
+:root {
+  --text: #e6dfcc;
+  --text-dim: #a9b5ad;
+  --label: #7fa898;
+  --amber: #e0a94a;
+  --teal: #5fd1b0;
+  --line: rgba(127, 168, 152, .28);
+  --surface-bg: #0f1c20;   /* matches the bottom of the surface scene */
+  --records-bg: #0f1c20;
+  --exhibits-bg: #0b1514;
+  --deep-bg: #060b0b;
+  --abyss-bg: #020404;
+  --col: 860px;
+  --gauge-room: 0px;
+  --display: "IM Fell English", Georgia, serif;
+  --display-sc: "IM Fell English SC", "IM Fell English", Georgia, serif;
+  --type: "Special Elite", "Courier New", monospace;
+  --body: "Cormorant Garamond", Georgia, serif;
+}
+@media (min-width: 900px) { :root { --gauge-room: 150px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--abyss-bg); color: var(--text); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; font: 500 20px/1.55 var(--body); -webkit-font-smoothing: antialiased; }
+a { color: var(--teal); text-underline-offset: 3px; }
+a:hover { color: #9ff0d4; }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+.skip { position: absolute; left: -999px; top: 8px; background: var(--abyss-bg); padding: 6px 12px; z-index: 50; }
+.skip:focus { left: 8px; }
+
+/* ---------- surface (title block; the stage lives in surface.css) ---------- */
+.zone-surface { position: relative; min-height: 100vh; min-height: 100svh; display: flex; justify-content: center; background: var(--surface-bg); }
+.surface-title { position: relative; z-index: 5; text-align: center; padding: 14vh 20px 0; text-shadow: 0 0 18px rgba(0, 0, 0, .85), 0 0 4px rgba(0, 0, 0, .9); }
+.surface-title .pre { font: 15px var(--type); letter-spacing: .35em; color: #b9cbc2; }
+.surface-title h1 { font: 400 clamp(52px, 10vw, 136px)/1 var(--display); margin: .12em 0 .05em; color: #efe9d8; }
+.tagline { font: italic 500 clamp(19px, 2.2vw, 28px)/1.3 var(--display); margin: 0; color: #d3dcd6; }
+.status { font: 14px var(--type); letter-spacing: .12em; color: #d3dcd6; display: inline-flex; align-items: center; gap: 9px; margin: 22px 0 0; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 10px 2px rgba(95, 209, 176, .6); }
+.descend { display: block; margin: 28px auto 0; width: max-content; font: 15px var(--type); letter-spacing: .25em; color: #c8e8d8; text-decoration: none; text-transform: uppercase; }
+@media (prefers-reduced-motion: no-preference) { .descend span { display: inline-block; animation: bob 3s ease-in-out infinite; } }
+@keyframes bob { 50% { transform: translateY(6px); opacity: .6; } }
+
+/* ---------- the depths ---------- */
+.depths {
+  position: relative;
+  background: linear-gradient(180deg, var(--records-bg) 0%, var(--exhibits-bg) 22%, var(--deep-bg) 55%, var(--abyss-bg) 88%);
+}
+.zone { position: relative; padding: 16vh 24px 10vh; padding-right: calc(24px + var(--gauge-room)); }
+.zone > * { max-width: var(--col); margin-left: auto; margin-right: auto; }
+.zone-head { margin-bottom: 38px; }
+.ftm { display: block; font: 13px var(--type); letter-spacing: .25em; text-transform: uppercase; color: var(--label); }
+h2 { font: 400 clamp(38px, 5vw, 60px)/1.05 var(--display-sc); margin: 6px 0 0; color: var(--text); }
+.prose p { margin: 0 0 1em; font-size: 22px; }
+.prose p:first-child::first-letter { font: 400 3.4em/0.8 var(--display); float: left; margin: 6px 10px 0 0; color: var(--amber); }
+
+/* wet-ink hover on big headings */
+.ink { transition: filter .6s, letter-spacing .6s, text-shadow .6s; }
+.ink:hover { filter: blur(.5px); letter-spacing: .03em; text-shadow: 2px 0 0 rgba(60, 140, 110, .45), -2px 0 0 rgba(140, 30, 30, .35); }
+@media (prefers-reduced-motion: reduce) { .ink, .ink:hover { transition: none; filter: none; letter-spacing: inherit; } }
+
+/* ---------- exhibits ---------- */
+.exhibit { margin-bottom: 80px; }
+.exhibit-media { aspect-ratio: 16 / 9; border: 1px solid rgba(127, 168, 152, .45); background: #050909; box-shadow: 0 0 60px rgba(95, 209, 176, .06), 0 30px 60px rgba(0, 0, 0, .6); }
+.exhibit-media video { display: block; width: 100%; height: 100%; object-fit: cover; background: #050909; }
+.exhibit-card { position: relative; margin: -20px 28px 0; padding: 22px 28px 20px; background: rgba(9, 19, 18, .94); border: 1px solid var(--line); border-top-color: rgba(127, 168, 152, .5); }
+.exhibit-card .meta { display: flex; justify-content: space-between; gap: 12px; font: 13px var(--type); letter-spacing: .14em; text-transform: uppercase; color: var(--label); }
+.exhibit-card h3 { font: 400 clamp(28px, 3.4vw, 38px)/1.15 var(--display); margin: 8px 0 4px; }
+.exhibit-card h4 { font: 13px var(--type); letter-spacing: .18em; text-transform: uppercase; color: var(--amber); margin: 18px 0 6px; font-weight: 400; }
+.exhibit-card p, .exhibit-card li { font-size: 20px; margin: 0; color: var(--text); }
+.exhibit-card ul { margin: 0; padding-left: 1.1em; }
+.exhibit-card li { margin: 3px 0; }
+.exhibit-card li::marker { color: var(--teal); }
+.credit { margin-top: 16px !important; font-size: 17px !important; color: var(--text-dim) !important; }
+@media (max-width: 600px) { .exhibit-card { margin: -12px 8px 0; padding: 18px 18px 16px; } }
+
+/* ---------- flight log ---------- */
+.log { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.log li { display: grid; grid-template-columns: 170px 1fr auto; gap: 8px 26px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.log-date { font: 14px/1.9 var(--type); color: var(--label); }
+.log-main h3 { font: 400 28px/1.15 var(--display); margin: 0; }
+.log-role { font: 14px var(--type); letter-spacing: .08em; color: var(--amber); margin: 4px 0 8px; }
+.log-main p { margin: 0; color: var(--text-dim); font-size: 19px; }
+.log-link { text-align: right; font: 15px var(--type); white-space: nowrap; }
+.warning { display: block; margin-top: 8px; font: 12px var(--type); letter-spacing: .12em; text-transform: uppercase; color: var(--amber); }
+.warning::before { content: "⚠ "; }
+@media (max-width: 700px) {
+  .log li { grid-template-columns: 1fr; }
+  .log-link { text-align: left; }
+}
+
+/* ---------- skills ---------- */
+.skills { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+.skills li { font: 16px var(--type); letter-spacing: .1em; text-transform: uppercase; color: var(--text); padding: 14px 16px; border: 1px solid var(--line); background: rgba(127, 168, 152, .03); }
+.skills li::before { content: "◈ "; color: var(--teal); }
+
+/* ---------- abyss ---------- */
+.zone-abyss { min-height: 100vh; text-align: center; padding-bottom: 18vh; }
+.whisper { font: italic 500 clamp(22px, 2.6vw, 30px)/1.3 var(--display); color: var(--text-dim); }
+.contact, .links { list-style: none; padding: 0; margin: 26px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 30px; font: 17px var(--type); }
+.contact .k { color: var(--label); margin-right: 10px; letter-spacing: .12em; text-transform: uppercase; font-size: 13px; }
+.contact .pending { color: var(--text-dim); }
+.links a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.links a:hover { color: var(--teal); border-color: var(--teal); }
+
+.foot { background: var(--abyss-bg); color: #6f8a80; font: 13px var(--type); text-align: center; padding: 24px; padding-right: calc(24px + var(--gauge-room)); }
+
+/* ---------- marine snow + the eye ---------- */
+#snow { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0; }
+main, .foot { position: relative; }
+.zone > * { position: relative; z-index: 2; }
+.zone-surface > .surface-title { z-index: 5; }
+
+.eye { position: relative; width: 190px; height: 62px; margin: 0 auto 50px; border-radius: 50%; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 50%, #1b2215 0 60%, #0a0d09 100%);
+  box-shadow: 0 0 60px 14px rgba(150, 160, 60, .12), inset 0 0 18px rgba(0, 0, 0, .9); }
+.eye .iris { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; transform: translate(-50%, -50%); border-radius: 50%;
+  background: radial-gradient(circle, #0a0a08 0 22%, #c9b23e 24% 38%, #5a5418 40% 52%, transparent 54%); }
+@media (prefers-reduced-motion: no-preference) {
+  .eye { animation: blink 7s infinite; }
+  .eye .iris { animation: look 11s ease-in-out infinite; }
+}
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.06); } }
+@keyframes look { 0%, 40%, 100% { transform: translate(-50%, -50%); } 50%, 70% { transform: translate(-30%, -46%); } }
