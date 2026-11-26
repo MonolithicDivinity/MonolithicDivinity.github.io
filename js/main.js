@@ -5,6 +5,7 @@ import { initGauge } from './gauge.js';
 import { initParticles } from './particles.js';
 import { initEye } from './eye.js';
 import { initBackdrops } from './backdrops.js';
+import { initMidwater } from './midwater.js';
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -36,6 +37,8 @@ fill('#links', () => renderLinks(content.links));
 const depths = $('.depths');
 initBackdrops(depths, [...depths.querySelectorAll('.backdrop')].map((el) => ({
   el, anchor: document.getElementById(el.dataset.anchor), focal: Number(el.dataset.focal) || 0.5 })));
+const mid = $('.backdrop.midwater');
+if (mid) initMidwater(mid);
 const eye = $('.eye-px');
 if (eye) initEye(eye);
 initGauge($('#gauge'), [...document.querySelectorAll('main section[data-fathoms]')]);

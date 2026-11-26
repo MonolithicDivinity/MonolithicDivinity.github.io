@@ -2,7 +2,6 @@ export default {
   "profile": {
     "name": "Monolith",
     "handle": "@MonolithicDivinity",
-    "tagline": "I build the systems that lurk beneath the game.",
     "status": "Open for commissions",
     "bio": [
       "Hello, I'm Mono, a 25-year-old experienced scripter specializing in frontend programming, despite being full-stack. I've been in the industry for nine years and have gained expertise in various fields such as music, concept art, and building. However, programming has been my primary focus.",
@@ -79,5 +78,5 @@ export default {
     { "label": "YouTube", "url": "https://www.youtube.com/@monolithicdivinity" },
     { "label": "Twitter / X", "url": "https://x.com/MonolithicDivi" }
   ],
-  "contact": { "email": "TODO: email", "discord": "TODO: discord" }
+  "contact": { "email": "MonolithicDevinity@gmail.com", "discord": "MonolithicDivinity" }
 };
