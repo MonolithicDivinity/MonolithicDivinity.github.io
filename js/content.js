@@ -72,7 +72,7 @@ export default {
       "link": { "label": "R'lyeh: The Sunken City", "url": "https://www.roblox.com/games/3194099138/Rlyeh-The-Sunken-City" }
     }
   ],
-  "skills": ["Scripting", "Animation", "Level Design", "Management", "Leadership", "Marketing", "Particles", "Education", "Game Design", "QA"],
+  "skills": ["Scripting", "Animation", "Level Design", "Management", "Leadership", "Particles", "Education", "Game Design", "QA"],
   "links": [
     { "label": "DevForum", "url": "https://devforum.roblox.com/u/MonolithicDivinity" },
     { "label": "Roblox", "url": "https://www.roblox.com/users/19266518/profile" },

@@ -112,14 +112,14 @@ main, .foot { position: relative; }
 .zone > * { position: relative; z-index: 2; }
 .zone-surface > .surface-title { z-index: 5; }
 
-.eye { position: relative; width: 190px; height: 62px; margin: 0 auto 50px; border-radius: 50%; overflow: hidden;
-  background: radial-gradient(ellipse at 50% 50%, #1b2215 0 60%, #0a0d09 100%);
-  box-shadow: 0 0 60px 14px rgba(150, 160, 60, .12), inset 0 0 18px rgba(0, 0, 0, .9); }
-.eye .iris { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; transform: translate(-50%, -50%); border-radius: 50%;
-  background: radial-gradient(circle, #0a0a08 0 22%, #c9b23e 24% 38%, #5a5418 40% 52%, transparent 54%); }
-@media (prefers-reduced-motion: no-preference) {
-  .eye { animation: blink 7s infinite; }
-  .eye .iris { animation: look 11s ease-in-out infinite; }
-}
-@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.06); } }
-@keyframes look { 0%, 40%, 100% { transform: translate(-50%, -50%); } 50%, 70% { transform: translate(-30%, -46%); } }
+.eye-px { --s: 1; width: calc(192px * var(--s)); height: calc(96px * var(--s)); margin: 0 auto 44px;
+  background: url(../assets/art/eye/eye-sheet.png) 0 0 / calc(960px * var(--s)) calc(96px * var(--s)) no-repeat;
+  image-rendering: pixelated; filter: drop-shadow(0 0 28px rgba(201, 178, 62, .16)); }
+@media (min-width: 480px) { .eye-px { --s: 2; } }
+@media (min-width: 1300px) { .eye-px { --s: 3; } }
+
+/* ---------- pixel-art backdrops behind the deeper zones ---------- */
+.depths { overflow: hidden; }
+.backdrop { position: absolute; z-index: 0; max-width: none; pointer-events: none; user-select: none; image-rendering: pixelated;
+  -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 78%, transparent);
+  mask-image: linear-gradient(transparent, #000 14%, #000 78%, transparent); }

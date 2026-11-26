@@ -3,6 +3,8 @@ import { renderBio, renderShowcase, renderHistory, renderSkills, renderContact, 
 import { initSurface } from './surface.js';
 import { initGauge } from './gauge.js';
 import { initParticles } from './particles.js';
+import { initEye } from './eye.js';
+import { initBackdrops } from './backdrops.js';
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -30,7 +32,12 @@ fill('#skills-list', () => renderSkills(content.skills));
 fill('#contact', () => renderContact(content.contact));
 fill('#links', () => renderLinks(content.links));
 
-// The gauge measures the sections, so it starts once they have content.
+// Backdrops and the gauge measure the sections, so they start once the sections have content.
+const depths = $('.depths');
+initBackdrops(depths, [...depths.querySelectorAll('.backdrop')].map((el) => ({
+  el, anchor: document.getElementById(el.dataset.anchor), focal: Number(el.dataset.focal) || 0.5 })));
+const eye = $('.eye-px');
+if (eye) initEye(eye);
 initGauge($('#gauge'), [...document.querySelectorAll('main section[data-fathoms]')]);
 
 // Marine snow fades in as the surface falls away, and only runs while it can be seen.
