@@ -10,6 +10,22 @@ export default {
   },
   "showcase": [
     {
+      "id": "monos",
+      "title": "MonOS",
+      "status": "Active project",
+      "since": "Sep 2024",
+      "image": "assets/img/monos.png",
+      "link": { "label": "Play on Roblox", "url": "https://www.roblox.com/games/134958791080245/MonOS" },
+      "seeing": "A late-90s computer simulator and freeform drawing game. Draw and sell your art, play music, chat with other players, and design your own MySpace-style webpage in a custom in-game browser.",
+      "built": [
+        "A custom browser for publishing and editing your own webpage",
+        "Freeform drawing, plus an art market for buying art to decorate your page",
+        "The weird world of Monotech, and the secrets hidden in the DriftNet",
+        "Desktop games with leaderboards, music, chat, and hacking your friends",
+        "Colour palettes bought with free in-game currency"
+      ]
+    },
+    {
       "id": "six-axis",
       "title": "6 Axis Flight System",
       "video": "assets/video/six-axis.mp4",

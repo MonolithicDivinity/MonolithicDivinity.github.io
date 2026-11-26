@@ -71,6 +71,13 @@ h2 { font: 400 clamp(38px, 5vw, 60px)/1.05 var(--display-sc); margin: 6px 0 0; c
 .exhibit-card ul { margin: 0; padding-left: 1.1em; }
 .exhibit-card li { margin: 3px 0; }
 .exhibit-card li::marker { color: var(--teal); }
+.exhibit-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.exhibit-media a { display: block; height: 100%; }
+.exhibit-still .exhibit-media a:hover img { filter: brightness(1.08); }
+.play-row { margin-top: 18px !important; }
+.play { display: inline-block; font: 15px var(--type); letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  color: #06100c; background: var(--teal); padding: 10px 18px; border-radius: 3px; }
+.play:hover { color: #06100c; background: #9ff0d4; }
 .credit { margin-top: 16px !important; font-size: 17px !important; color: var(--text-dim) !important; }
 @media (max-width: 600px) { .exhibit-card { margin: -12px 8px 0; padding: 18px 18px 16px; } }
 

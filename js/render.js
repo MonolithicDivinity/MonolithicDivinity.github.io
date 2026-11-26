@@ -21,21 +21,31 @@ export function renderBio(profile) {
   return frag;
 }
 
+function exhibitMedia(item) {
+  if (item.video) {
+    return el('video', { controls: true, playsinline: true, preload: 'none', poster: item.poster, src: item.video,
+      'aria-label': `${item.title}, ${item.duration} video` });
+  }
+  const img = el('img', { src: item.image, alt: `Screenshot of ${item.title}`, loading: 'lazy', decoding: 'async' });
+  return item.link ? external(item.link.url, img) : img;
+}
+
 export function renderShowcase(items) {
   const frag = document.createDocumentFragment();
   items.forEach((item, i) => {
-    frag.append(el('article', { class: 'exhibit', id: `exhibit-${item.id}` },
-      el('div', { class: 'exhibit-media' },
-        el('video', { controls: true, playsinline: true, preload: 'none', poster: item.poster, src: item.video,
-          'aria-label': `${item.title}, ${item.duration} video` })),
+    const right = item.duration || (item.since ? `Since ${item.since}` : '');
+    frag.append(el('article', { class: `exhibit${item.video ? '' : ' exhibit-still'}`, id: `exhibit-${item.id}` },
+      el('div', { class: 'exhibit-media' }, exhibitMedia(item)),
       el('div', { class: 'exhibit-card' },
         el('div', { class: 'meta' },
-          el('span', {}, `Exhibit ${LETTERS[i] || i + 1} · Recovered footage`), el('span', {}, item.duration)),
+          el('span', {}, `Exhibit ${LETTERS[i] || i + 1} · ${item.status || 'Recovered footage'}`), el('span', {}, right)),
         el('h3', { class: 'ink' }, item.title),
         el('h4', {}, "What you're seeing"),
         el('p', {}, item.seeing),
         item.built?.length && el('h4', {}, 'What I built'),
         item.built?.length && el('ul', {}, item.built.map((b) => el('li', {}, b))),
+        item.link && el('p', { class: 'play-row' },
+          el('a', { class: 'play', href: item.link.url, target: '_blank', rel: 'noopener noreferrer' }, `${item.link.label} ↗`)),
         item.credit && el('p', { class: 'credit' }, 'Not mine: ', external(item.credit.url, item.credit.text)))));
   });
   return frag;
